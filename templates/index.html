@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>This or That Lang</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="/static/styles.css" rel="stylesheet">
-    </head>
-    <body>
-        <h1 class="text-blue-500">Hello world</h1>
-    </body>
+
+<head>
+    <title>This or That Lang</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/static/styles.css" rel="stylesheet">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+</head>
+
+<body>
+    <h1 class="text-blue-500">Hello world</h1>
+    <ul>
+        {{ range $i, $lang := .Langs }}
+        <i class="devicon-{{$lang.LogoSlug}}-plain colored text-5xl"></i>
+        {{ end }}
+    </ul>
+</body>
+
 </html>

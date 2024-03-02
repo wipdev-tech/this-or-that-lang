@@ -1,24 +1,34 @@
 package main
 
 import (
+	"database/sql"
 	"fmt"
 	"html/template"
 	"log"
 	"net/http"
 	"os"
+	"wipdev-tech/this-or-that-lang/internal/database"
 
-	"github.com/joho/godotenv"
+	_ "github.com/tursodatabase/libsql-client-go/libsql"
 )
 
 type service struct {
+	db *database.Queries
 }
 
 func main() {
-	err := godotenv.Load()
+	dbURL, dbToken, err := getDBEnv()
 	if err != nil {
 		log.Fatal(err)
 	}
-	s := service{}
+
+	connURL := fmt.Sprintf("%s?authToken=%s", dbURL, dbToken)
+	db, err := sql.Open("libsql", connURL)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	s := service{db: database.New(db)}
 
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
@@ -42,7 +52,14 @@ func (s *service) handleHome(w http.ResponseWriter, r *http.Request) {
 		// "templates/fragments.html",
 	))
 
-	tmpl.Execute(w, nil)
+	langs, err := s.db.GetLanguages(r.Context())
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	tmpl.Execute(w, struct {
+		Langs []database.Language
+	}{Langs: langs})
 }
 
 func (s *service) handleRegister(w http.ResponseWriter, r *http.Request) {
