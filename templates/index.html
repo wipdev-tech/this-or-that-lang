@@ -9,15 +9,35 @@
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 </head>
 
-<body>
-    <ul class="flex">
+<body class="mx-auto my-16 max-w-7xl p-5 text-slate-200 bg-cyan-800">
+    <h1 class="font-mono font-bold text-3xl ">
+        This or That
+        <span class="opacity-75 font-normal ml-5">{{ .Comment }}</span>
+    </h1>
+
+    <ul class="flex flex-wrap gap-1 items-center justify-between w-full my-5">
         {{ range $i, $lang := .Langs }}
         <li>
-            <img width="50" height="50"
+            <img width="50" height="50" class="bg-slate-200 p-2 rounded-lg bg-opacity-85"
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/{{ $lang.LogoSlug }}/{{ $lang.LogoSlug }}-original.svg" />
         </li>
         {{ end }}
     </ul>
+
+    <section class="my-5 text-lg">
+        <p><b>JavaScript</b> or <b>Python</b>?</p>
+        <p><b>Rust</b> or <b>Go</b>?</p>
+        <p class="text-lg">Tell us which languages are your favorite, because <i>what else should you be doing on the
+                internet?</i></p>
+    </section>
+
+    <hr class="border-cyan-100 my-10">
+
+    <section class="my-5 text-lg">
+        <h3 class="font-bold text-2xl">The community has spoken!</h3>
+        <h4 class="text-xl">Actually, it's only 0 developers.</h4>
+    </section>
+
 </body>
 
 </html>

@@ -3,7 +3,9 @@ export default {
     content: ["./templates/*.html", "./static/*.js"],
     theme: {
         extend: {},
-        fontFamily: {}
+        fontFamily: {
+            mono: 'monospace'
+        }
     },
     plugins: [],
 }

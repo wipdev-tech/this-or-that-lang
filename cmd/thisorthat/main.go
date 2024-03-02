@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"html/template"
 	"log"
+	"math/rand"
 	"net/http"
 	"os"
 	"wipdev-tech/this-or-that-lang/internal/database"
@@ -56,10 +57,25 @@ func (s *service) handleHome(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 	}
+	rand.Shuffle(len(langs), func(i, j int) { langs[i], langs[j] = langs[j], langs[i] })
+
+	comments := []string{
+		"// but for languages!",
+		"/* but for languages! */",
+		"# but for languages!",
+		"-- but for languages!",
+		"; but for languages!",
+		"(* but for languages! *)",
+	}
+	comment := comments[rand.Intn(len(comments))]
 
 	tmpl.Execute(w, struct {
-		Langs []database.Language
-	}{Langs: langs})
+		Langs   []database.Language
+		Comment string
+	}{
+		Langs:   langs,
+		Comment: comment,
+	})
 }
 
 func (s *service) handleRegister(w http.ResponseWriter, r *http.Request) {
