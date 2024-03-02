@@ -1,21 +1,32 @@
 -- +goose Up
 CREATE TABLE languages (
-  id INT PRIMARY KEY,
-  name TEXT NOT NULL,
-  logo_slug TEXT NOT NULL
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT UNIQUE NOT NULL,
+  logo_slug TEXT UNIQUE NOT NULL
 );
 
-INSERT INTO languages (id, name, logo_slug)
-VALUES (1,  'JavaScript', 'javascript'),
-       (2,  'Python',     'python'),
-       (3,  'Ruby',       'ruby'),
-       (4,  'Java',       'java'),
-       (5,  'PHP',        'php'),
-       (6,  'C#',         'csharp'),
-       (7,  'Go',         'go'),
-       (8,  'TypeScript', 'typescript'),
-       (9,  'C++',        'cplusplus'),
-       (10, 'Perl',       'perl');
+INSERT INTO languages (name, logo_slug)
+VALUES ('JavaScript', 'javascript'),
+       ('Python',     'python'),
+       ('Ruby',       'ruby'),
+       ('Java',       'java'),
+       ('PHP',        'php'),
+       ('C#',         'csharp'),
+       ('Go',         'go'),
+       ('TypeScript', 'typescript'),
+       ('C++',        'cplusplus'),
+       ('Perl',       'perl'),
+       ('Haskell',    'haskell'),
+       ('Julia',      'julia'),
+       ('OCaml',      'ocaml'),
+       ('C',          'c'),
+       ('Rust',       'rust'),
+       ('Elixir',     'elixir'),
+       ('Lua',        'lua'),
+       ('Clojure',    'clojure'),
+       ('Kotlin',     'kotlin'),
+       ('Swift',      'swift'),
+       ('R',          'r');
 
 
 -- +goose Down

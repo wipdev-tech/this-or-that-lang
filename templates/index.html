@@ -10,10 +10,12 @@
 </head>
 
 <body>
-    <h1 class="text-blue-500">Hello world</h1>
-    <ul>
+    <ul class="flex">
         {{ range $i, $lang := .Langs }}
-        <i class="devicon-{{$lang.LogoSlug}}-plain colored text-5xl"></i>
+        <li>
+            <img width="50" height="50"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/{{ $lang.LogoSlug }}/{{ $lang.LogoSlug }}-original.svg" />
+        </li>
         {{ end }}
     </ul>
 </body>
