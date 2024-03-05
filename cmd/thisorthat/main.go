@@ -50,7 +50,8 @@ func main() {
 func (s *service) handleHome(w http.ResponseWriter, r *http.Request) {
 	tmpl := template.Must(template.ParseFiles(
 		"templates/index.html",
-		// "templates/fragments.html",
+		"templates/top.html",
+		"templates/bottom.html",
 	))
 
 	langs, err := s.db.GetLanguages(r.Context())
