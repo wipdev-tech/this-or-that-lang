@@ -1,15 +1,15 @@
 {{ template "top" }}
 
-<div>
+<div class="flex flex-col md:flex-row items-center justify-center w-full">
     <section>
-        <h2 class="text-2xl">{{ .Lang1Name }}</h2>
-        <img width="150" height="150" class="bg-slate-200 p-2 rounded-lg bg-opacity-85"
+        <h2 class="font-bold text-2xl text-center mb-2">{{ .Lang1Name }}</h2>
+        <img width="200" height="200" class="bg-slate-200 p-2 rounded-lg bg-opacity-85"
             src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/{{ .Lang1Slug }}/{{ .Lang1Slug }}-original.svg" />
     </section>
-    -- OR --
+    <p class="my-5 mx-20">OR</p>
     <section>
-        <h2 class="text-2xl">{{ .Lang2Name }}</h2>
-        <img width="150" height="150" class="bg-slate-200 p-2 rounded-lg bg-opacity-85"
+        <h2 class="font-bold text-2xl text-center mb-2">{{ .Lang2Name }}</h2>
+        <img width="200" height="200" class="bg-slate-200 p-2 rounded-lg bg-opacity-85"
             src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/{{ .Lang2Slug }}/{{ .Lang2Slug }}-original.svg" />
     </section>
 </div>
