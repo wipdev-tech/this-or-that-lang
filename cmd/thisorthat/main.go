@@ -84,13 +84,3 @@ func (s *service) handleRegister(w http.ResponseWriter, r *http.Request) {
 
 func (s *service) handleLogin(w http.ResponseWriter, r *http.Request) {
 }
-
-func (s *service) handlePlay(w http.ResponseWriter, r *http.Request) {
-	tmpl := template.Must(template.ParseFiles(
-		"templates/play.html",
-		"templates/top.html",
-		"templates/bottom.html",
-	))
-
-	tmpl.Execute(w, nil)
-}

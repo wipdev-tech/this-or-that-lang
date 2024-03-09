@@ -2,10 +2,15 @@
 
 <div>
     <section>
-        Lang 1
+        <h2 class="text-2xl">{{ .Lang1Name }}</h2>
+        <img width="150" height="150" class="bg-slate-200 p-2 rounded-lg bg-opacity-85"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/{{ .Lang1Slug }}/{{ .Lang1Slug }}-original.svg" />
     </section>
+    -- OR --
     <section>
-        Lang 2
+        <h2 class="text-2xl">{{ .Lang2Name }}</h2>
+        <img width="150" height="150" class="bg-slate-200 p-2 rounded-lg bg-opacity-85"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/{{ .Lang2Slug }}/{{ .Lang2Slug }}-original.svg" />
     </section>
 </div>
 

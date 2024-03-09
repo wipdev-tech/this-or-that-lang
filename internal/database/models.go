@@ -4,10 +4,20 @@
 
 package database
 
-import ()
+import (
+	"database/sql"
+)
 
 type Language struct {
 	ID       int64
 	Name     string
 	LogoSlug string
+}
+
+type Vote struct {
+	ID      int64
+	UserID  sql.NullInt64
+	Lang1ID int64
+	Lang2ID int64
+	Choice  sql.NullInt64
 }
