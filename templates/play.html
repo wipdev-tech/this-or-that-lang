@@ -1,16 +1,16 @@
-{{ template "top" }}
+{{ template "top" . }}
 
 <div class="flex flex-col md:flex-row items-center justify-center w-full">
     <section>
-        <h2 class="font-bold text-2xl text-center mb-2">{{ .Lang1Name }}</h2>
+        <h2 class="font-bold text-2xl text-center mb-2">{{ .Vote.Lang1Name }}</h2>
         <img width="200" height="200" class="bg-slate-200 p-2 rounded-lg bg-opacity-85"
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/{{ .Lang1Slug }}/{{ .Lang1Slug }}-original.svg" />
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/{{ .Vote.Lang1Slug }}/{{ .Vote.Lang1Slug }}-original.svg" />
     </section>
     <p class="my-5 mx-20">OR</p>
     <section>
-        <h2 class="font-bold text-2xl text-center mb-2">{{ .Lang2Name }}</h2>
+        <h2 class="font-bold text-2xl text-center mb-2">{{ .Vote.Lang2Name }}</h2>
         <img width="200" height="200" class="bg-slate-200 p-2 rounded-lg bg-opacity-85"
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/{{ .Lang2Slug }}/{{ .Lang2Slug }}-original.svg" />
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/{{ .Vote.Lang2Slug }}/{{ .Vote.Lang2Slug }}-original.svg" />
     </section>
 </div>
 
