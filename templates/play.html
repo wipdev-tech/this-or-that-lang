@@ -2,15 +2,19 @@
 
 <div class="flex flex-col md:flex-row items-center justify-center w-full">
     <section>
-        <h2 class="font-bold text-2xl text-center mb-2">{{ .Vote.Lang1Name }}</h2>
-        <img width="200" height="200" class="bg-slate-200 p-2 rounded-lg bg-opacity-85"
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/{{ .Vote.Lang1Slug }}/{{ .Vote.Lang1Slug }}-original.svg" />
+        <button>
+            <img width="200" height="200" class="bg-slate-200 p-2 rounded-lg bg-opacity-75 hover:bg-opacity-100"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/{{ .Vote.Lang1Slug }}/{{ .Vote.Lang1Slug }}-original.svg" />
+        </button>
+        <h2 class="font-bold text-2xl text-center">{{ .Vote.Lang1Name }}</h2>
     </section>
     <p class="my-5 mx-20">OR</p>
     <section>
-        <h2 class="font-bold text-2xl text-center mb-2">{{ .Vote.Lang2Name }}</h2>
-        <img width="200" height="200" class="bg-slate-200 p-2 rounded-lg bg-opacity-85"
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/{{ .Vote.Lang2Slug }}/{{ .Vote.Lang2Slug }}-original.svg" />
+        <button>
+            <img width="200" height="200" class="bg-slate-200 p-2 rounded-lg bg-opacity-75 hover:bg-opacity-100"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/{{ .Vote.Lang2Slug }}/{{ .Vote.Lang2Slug }}-original.svg" />
+        </button>
+        <h2 class="font-bold text-2xl text-center">{{ .Vote.Lang2Name }}</h2>
     </section>
 </div>
 
