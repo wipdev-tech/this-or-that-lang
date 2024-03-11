@@ -46,11 +46,14 @@ func (s *Service) HandlePlay(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(err)
 	}
 
-	tmpl.Execute(w, struct {
+	err = tmpl.Execute(w, struct {
 		Comment string
 		Vote    database.GetAllVotesRow
 	}{
 		Comment: generateComment(),
 		Vote:    votes[0],
 	})
+	if err != nil {
+		log.Fatal(err)
+	}
 }

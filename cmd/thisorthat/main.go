@@ -31,7 +31,6 @@ func main() {
 	server := http.Server{Handler: mux}
 
 	fmt.Println("This or That Lang server, let's go!")
-
 	if os.Getenv("ENV") == "dev" {
 		fmt.Println("Dev server started and running at http://localhost:8080")
 		server.Addr = "localhost:8080"
