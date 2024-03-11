@@ -3,6 +3,7 @@ package service
 import (
 	"fmt"
 	"html/template"
+	"log"
 	"net/http"
 	"wipdev-tech/this-or-that-lang/internal/database"
 )
@@ -14,13 +15,17 @@ func (s *Service) HandleHome(w http.ResponseWriter, r *http.Request) {
 		"templates/bottom.html",
 	))
 
-	tmpl.Execute(w, struct {
+	err := tmpl.Execute(w, struct {
 		Langs   []database.Language
 		Comment string
 	}{
 		Langs:   s.getLangs(r.Context()),
 		Comment: generateComment(),
 	})
+
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func (s *Service) HandleRegister(w http.ResponseWriter, r *http.Request) {
